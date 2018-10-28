@@ -1,6 +1,5 @@
 <?php 
 $_UN = $_POST["UN"];
-$_PW = $_POST["PW"];
 
 $mysqli = new mysqli("mysql.eecs.ku.edu", "i229y416", "kei3aeTh", "i229y416");
 
