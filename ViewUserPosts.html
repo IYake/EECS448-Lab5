@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
-<header>
-<?php include 'ViewUserPosts.php'; ?></header>
+<header style="text-align:center;font-size:20px;font-weight:bold;">
+  View User Posts
+  <?php include 'ViewUserPosts.php'; ?></header>
 <body>
+  <form action="ViewUserPosts.php" method="POST">
   <select>
-    <?php for ($i=1;$i<$ct;$i++){ ?>    
-      <option value="user_id"><?php getUser($i) ?></option>
+    <?php for ($i=1;$i<getUserRows();$i++){ ?>    
+      <option value="<?php getUser($i); ?>" name="user"><?php getUser($i) ?></option>
     <?php } ?>
   </select>
+  <input type="submit" name="submit" value="submit">
+  </form>
+  
 </body>
 </html>
