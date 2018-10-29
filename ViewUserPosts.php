@@ -7,19 +7,23 @@ if ($_user = $_POST["user"]){
   $mysqli = new mysqli("mysql.eecs.ku.edu", "i229y416", "kei3aeTh", "i229y416");
   $query = "SELECT content FROM Posts WHERE author_id='$_user'";
   
+
   if ($result = $mysqli->query($query)) {
-      
+    
       $postnum = 1;
       echo "<br>";
       while ($row = $result->fetch_assoc()) {
           echo "Post #" . $postnum . ": ";
           echo $row["content"];
           echo "<br><br>";
-          $postnum++;
+          $postnum += 1;
+      }
+      if ($postnum == 1){
+        echo "This user has no posts";
       }
       $result->free();
   } else {
-    echo "User has no posts";
+    echo "Posts query failed";
   }
     $mysqli->close();
 }
