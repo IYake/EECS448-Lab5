@@ -5,7 +5,7 @@
   <?php include 'ViewUserPosts.php'; ?></header>
 <body>
   <form action="ViewUserPosts.php" method="POST">
-  <select>
+  <select name="user">
     <?php for ($i=1;$i<getUserRows();$i++){ ?>    
       <option value="<?php getUser($i); ?>" name="user"><?php getUser($i) ?></option>
     <?php } ?>

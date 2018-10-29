@@ -1,8 +1,29 @@
 <?php
 
-$_user = $_POST["user"];
-var_dump($_user);
-echo "stuff";
+//if form has been submitted
+if ($_user = $_POST["user"]){
+  echo "Displaying posts from " . "<b>" . $_user . "</b><br>";
+  
+  $mysqli = new mysqli("mysql.eecs.ku.edu", "i229y416", "kei3aeTh", "i229y416");
+  $query = "SELECT content FROM Posts WHERE author_id='$_user'";
+  
+  if ($result = $mysqli->query($query)) {
+      
+      $postnum = 1;
+      echo "<br>";
+      while ($row = $result->fetch_assoc()) {
+          echo "Post #" . $postnum . ": ";
+          echo $row["content"];
+          echo "<br><br>";
+          $postnum++;
+      }
+      $result->free();
+  } else {
+    echo "User has no posts";
+  }
+    $mysqli->close();
+}
+
 
 
 
