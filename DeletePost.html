@@ -8,8 +8,9 @@
 <form action="DeletePost.php" method="POST">
 <table>
   <tr><th>Author</th><th>Posts</th></tr>
-  <tr><td>Author</td><td>Posts</td><td><input type="checkbox" name="post_id1_ex">Delete?</td></tr>
-  <tr><td>Author</td><td>Posts</td><td><input type="checkbox" name="post_id2_ex">Delete?</td></tr>
+  <?php for ($i=0;$i<getPostRows();$i++){ ?>
+    <tr><td><?php getAuthor($i) ?></td><td><?php getPost($i) ?></td><td><input type="checkbox" name="<?php getPostID($i) ?>">Delete?</td></tr>
+  <?php } ?>
 </table>
 <input type="submit" name="submit" value="submit">
 </form>
