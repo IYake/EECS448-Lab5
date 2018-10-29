@@ -11,7 +11,15 @@ if ($_submit == "submit"){
         
         //if checkbox is checked for that post_id name
         if ($_post = $_POST["$id"]){
-           echo "post_id " . $id . " deleted<br>";
+           
+           $query2 = "DELETE FROM Posts WHERE post_id=$id";
+           if ($result2 = $mysqli->query($query2)) {
+               //includes row of column header
+               echo "post_id " . $id . " deleted<br>";
+           } else {
+             echo "Query failed: deleting post count";
+           }
+           
          }
     }
     
