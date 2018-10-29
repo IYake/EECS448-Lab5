@@ -32,17 +32,6 @@ if ($_user = $_POST["user"]){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 function getUserRows(){
   $mysqli = new mysqli("mysql.eecs.ku.edu", "i229y416", "kei3aeTh", "i229y416");
   $query = "SELECT * FROM Users";
