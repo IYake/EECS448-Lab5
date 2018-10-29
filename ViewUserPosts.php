@@ -12,10 +12,13 @@ if ($_user = $_POST["user"]){
     
       $postnum = 1;
       echo "<br>";
+      echo "<table><tr><th>Posts</th><tr><table>";
+      
       while ($row = $result->fetch_assoc()) {
-          echo "Post #" . $postnum . ": ";
-          echo $row["content"];
-          echo "<br><br>";
+          // echo "Post #" . $postnum . ": ";
+          // echo $row["content"];
+          // echo "<br><br>";
+          echo "<tr><td>" . $row["content"] . "</td></tr>";
           $postnum += 1;
       }
       if ($postnum == 1){
